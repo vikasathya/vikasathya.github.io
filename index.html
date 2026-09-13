@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-        content="Vikas Athya — Web Developer building clean, responsive and user-friendly web experiences.">
+        content="Vikas Athya — Full Stack Developer building clean, responsive and user-friendly web experiences.">
 
     <meta name="theme-color" content="#080b09">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23080b09'/%3E%3Ctext x='50' y='63' text-anchor='middle' font-family='Arial,sans-serif' font-size='42' font-weight='700' fill='%23ffffff'%3EVA%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=2">
+    <link rel="apple-touch-icon" href="assets/favicon.png?v=2">
 
-    <title>Vikas Athya | Web Developer</title>
+    <title>Vikas Athya | Full Stack Developer</title>
 
     <!-- Font Awesome -->
     <link
@@ -33,6 +34,53 @@
 </head>
 
 <body>
+
+    <!-- ================= PRELOADER ================= -->
+
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-bg-glow"></div>
+        <div class="preloader-grid"></div>
+
+        <div class="preloader-content">
+            <!-- Circular Favicon Avatar with Code Rings -->
+            <div class="preloader-avatar-wrap">
+                <div class="preloader-ring preloader-ring-outer"></div>
+                <div class="preloader-ring preloader-ring-middle"></div>
+                <div class="preloader-ring preloader-ring-inner"></div>
+                <div class="preloader-avatar">
+                    <img src="assets/favicon.png?v=2" alt="Vikas Athya" class="preloader-avatar-img">
+                    <div class="preloader-scanline"></div>
+                </div>
+            </div>
+
+            <!-- Code / Developer Title -->
+            <div class="preloader-code-title">
+                <span class="code-bracket">&lt;</span><span class="code-name">Vikas Athya</span><span class="code-slash"> /</span><span class="code-bracket">&gt;</span>
+            </div>
+
+            <!-- Terminal Code Command Line -->
+            <div class="preloader-terminal-line">
+                <span class="preloader-prompt">$&gt;</span>
+                <span class="preloader-cmd" id="preloader-text">initializing environment...</span>
+                <span class="preloader-cursor">_</span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="preloader-track">
+                <div class="preloader-bar" id="preloader-bar"></div>
+            </div>
+
+            <!-- Footer Stats -->
+            <div class="preloader-footer">
+                <span class="preloader-status">
+                    <span class="preloader-dot"></span>
+                    <span class="preloader-sys" id="preloader-subtext">compiling</span>
+                </span>
+                <span class="preloader-counter" id="preloader-counter">0%</span>
+            </div>
+        </div>
+    </div>
+
 
     <!-- ================= CUSTOM CURSOR ================= -->
 
@@ -65,7 +113,7 @@
                 <span>&lt;</span>Vikas<span>/&gt;</span>
             </a>
 
-            <nav class="nav-menu">
+            <nav class="nav-menu" id="nav-menu">
 
                 <a href="#home" class="active magnetic">Home</a>
                 <a href="#about" class="magnetic">About</a>
@@ -75,11 +123,24 @@
 
             </nav>
 
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
-              <span></span>
-              <span></span>
-               <span></span>
-        </button>
+            <div class="nav-actions">
+
+                <button
+                    class="sound-toggle-btn magnetic"
+                    id="sound-toggle-btn"
+                    aria-label="Toggle sound effects"
+                    title="Sound effects (Click to mute/unmute)"
+                >
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
 
         </div>
 
@@ -129,7 +190,7 @@
 
 
                     <h2>
-                        I'm a <span>Web Developer</span>
+                        I'm a <span>Full Stack Developer</span>
                     </h2>
 
 
@@ -270,7 +331,7 @@
 
                             <pre><code><span class="code-keyword">const</span> <span class="code-variable">developer</span> = {
   <span class="code-property">name</span>: <span class="code-string">"Vikas Athya"</span>,
-  <span class="code-property">role</span>: <span class="code-string">"Web Developer"</span>,
+  <span class="code-property">role</span>: <span class="code-string">"Full Stack Developer"</span>,
   <span class="code-property">skills</span>: [
     <span class="code-string">"HTML"</span>,
     <span class="code-string">"CSS"</span>,
@@ -369,7 +430,7 @@
                         <p>
                             I work with HTML, CSS, and JavaScript and continuously
                             improve my skills by building real-world projects.
-                            My goal is to become a professional web developer
+                            My goal is to become a professional full stack developer
                             and build useful digital experiences.
                         </p>
 
@@ -478,7 +539,7 @@
                             <h4>Goal</h4>
 
                             <p>
-                                Professional Web Developer
+                                Professional Full Stack Developer
                             </p>
 
                         </div>
@@ -519,12 +580,30 @@
                 </div>
 
 
+                <div class="skills-filter-wrap reveal">
+                    <button class="skill-filter-btn active magnetic" data-filter="all">
+                        <i class="fa-solid fa-layer-group"></i> All Stack
+                    </button>
+                    <button class="skill-filter-btn magnetic" data-filter="frontend">
+                        <i class="fa-brands fa-react"></i> Frontend
+                    </button>
+                    <button class="skill-filter-btn magnetic" data-filter="backend">
+                        <i class="fa-solid fa-server"></i> Backend & DB
+                    </button>
+                    <button class="skill-filter-btn magnetic" data-filter="tools">
+                        <i class="fa-solid fa-screwdriver-wrench"></i> Tools & APIs
+                    </button>
+                </div>
+
+
                 <div class="skills-grid">
 
 
+                    <!-- HTML5 -->
                     <div
                         class="skill-card glass-card tilt-card reveal"
                         data-tilt-strength="4"
+                        data-category="frontend"
                     >
 
                         <div class="card-shine"></div>
@@ -537,7 +616,7 @@
 
                             <div class="skill-title">
 
-                                <h3>HTML</h3>
+                                <h3>HTML5</h3>
 
                                 <span>90%</span>
 
@@ -553,7 +632,7 @@
                             </div>
 
                             <p>
-                                Semantic and accessible web structure
+                                Semantic, accessible & SEO-optimized structure
                             </p>
 
                         </div>
@@ -561,9 +640,11 @@
                     </div>
 
 
+                    <!-- CSS3 -->
                     <div
                         class="skill-card glass-card tilt-card reveal"
                         data-tilt-strength="4"
+                        data-category="frontend"
                     >
 
                         <div class="card-shine"></div>
@@ -576,7 +657,7 @@
 
                             <div class="skill-title">
 
-                                <h3>CSS</h3>
+                                <h3>CSS3 / Modern UI</h3>
 
                                 <span>85%</span>
 
@@ -592,7 +673,7 @@
                             </div>
 
                             <p>
-                                Responsive layouts and modern UI design
+                                Responsive layouts, Flexbox/Grid & modern animations
                             </p>
 
                         </div>
@@ -600,9 +681,11 @@
                     </div>
 
 
+                    <!-- JavaScript -->
                     <div
                         class="skill-card glass-card tilt-card reveal"
                         data-tilt-strength="4"
+                        data-category="frontend"
                     >
 
                         <div class="card-shine"></div>
@@ -615,7 +698,48 @@
 
                             <div class="skill-title">
 
-                                <h3>JavaScript</h3>
+                                <h3>JavaScript (ES6+)</h3>
+
+                                <span>80%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div
+                                    class="skill-progress"
+                                    data-width="80%"
+                                ></div>
+
+                            </div>
+
+                            <p>
+                                Modern ES6+, DOM manipulation & asynchronous logic
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- React.js -->
+                    <div
+                        class="skill-card glass-card tilt-card reveal"
+                        data-tilt-strength="4"
+                        data-category="frontend"
+                    >
+
+                        <div class="card-shine"></div>
+
+                        <div class="skill-icon">
+                            <i class="fa-brands fa-react"></i>
+                        </div>
+
+                        <div class="skill-info">
+
+                            <div class="skill-title">
+
+                                <h3>React.js</h3>
 
                                 <span>75%</span>
 
@@ -631,7 +755,7 @@
                             </div>
 
                             <p>
-                                Interactive web applications and logic
+                                Component architecture, custom hooks & reactive state
                             </p>
 
                         </div>
@@ -639,22 +763,65 @@
                     </div>
 
 
+                    <!-- Node.js & Express -->
                     <div
                         class="skill-card glass-card tilt-card reveal"
                         data-tilt-strength="4"
+                        data-category="backend"
                     >
 
                         <div class="card-shine"></div>
 
                         <div class="skill-icon">
-                            <i class="fa-brands fa-github"></i>
+                            <i class="fa-brands fa-node-js"></i>
                         </div>
 
                         <div class="skill-info">
 
                             <div class="skill-title">
 
-                                <h3>Git & GitHub</h3>
+                                <h3>Node.js & Express</h3>
+
+                                <span>72%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div
+                                    class="skill-progress"
+                                    data-width="72%"
+                                ></div>
+
+                            </div>
+
+                            <p>
+                                Server-side JavaScript, RESTful endpoints & middleware logic
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MongoDB & Database -->
+                    <div
+                        class="skill-card glass-card tilt-card reveal"
+                        data-tilt-strength="4"
+                        data-category="backend"
+                    >
+
+                        <div class="card-shine"></div>
+
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+
+                        <div class="skill-info">
+
+                            <div class="skill-title">
+
+                                <h3>MongoDB & Database</h3>
 
                                 <span>70%</span>
 
@@ -670,26 +837,181 @@
                             </div>
 
                             <p>
-                                Version control and project deployment
+                                NoSQL document modeling, data schemas & CRUD operations
                             </p>
 
                         </div>
 
                     </div>
 
+
+                    <!-- RESTful APIs & AI -->
+                    <div
+                        class="skill-card glass-card tilt-card reveal"
+                        data-tilt-strength="4"
+                        data-category="tools"
+                    >
+
+                        <div class="card-shine"></div>
+
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                        </div>
+
+                        <div class="skill-info">
+
+                            <div class="skill-title">
+
+                                <h3>RESTful APIs & AI</h3>
+
+                                <span>80%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div
+                                    class="skill-progress"
+                                    data-width="80%"
+                                ></div>
+
+                            </div>
+
+                            <p>
+                                External API consumption, async fetch & Gemini AI services
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Git & GitHub -->
+                    <div
+                        class="skill-card glass-card tilt-card reveal"
+                        data-tilt-strength="4"
+                        data-category="tools"
+                    >
+
+                        <div class="card-shine"></div>
+
+                        <div class="skill-icon">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+
+                        <div class="skill-info">
+
+                            <div class="skill-title">
+
+                                <h3>Git & GitHub</h3>
+
+                                <span>78%</span>
+
+                            </div>
+
+                            <div class="skill-bar">
+
+                                <div
+                                    class="skill-progress"
+                                    data-width="78%"
+                                ></div>
+
+                            </div>
+
+                            <p>
+                                Version control, branch workflows & project deployment
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
                 </div>
 
 
+                <!-- ================= CORE CAPABILITIES ================= -->
+
+                <div class="skills-capabilities reveal">
+
+                    <div class="capability-card glass-card">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <div class="capability-text">
+                            <h4>Responsive & Mobile-First</h4>
+                            <p>Adaptive layouts tailored for flawless user experience across smartphones, tablets, and desktops.</p>
+                        </div>
+                    </div>
+
+                    <div class="capability-card glass-card">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div class="capability-text">
+                            <h4>Clean & Modular Architecture</h4>
+                            <p>Maintainable code with reusable components, structured design patterns, and clean commits.</p>
+                        </div>
+                    </div>
+
+                    <div class="capability-card glass-card">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <div class="capability-text">
+                            <h4>Performance & Speed</h4>
+                            <p>Optimized rendering, minimal network payloads, fast interaction response, and SEO readiness.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= TOOLS & ECOSYSTEM ================= -->
+
+                <div class="skills-ecosystem reveal">
+
+                    <div class="ecosystem-header">
+                        <span class="ecosystem-label">// TOOLS & ECOSYSTEM</span>
+                        <h3>Technologies & Workflow Utilities</h3>
+                    </div>
+
+                    <div class="ecosystem-pills">
+                        <span class="eco-pill magnetic"><i class="fa-solid fa-code"></i> VS Code</span>
+                        <span class="eco-pill magnetic"><i class="fa-brands fa-npm"></i> NPM</span>
+                        <span class="eco-pill magnetic"><i class="fa-solid fa-wind"></i> Tailwind CSS</span>
+                        <span class="eco-pill magnetic"><i class="fa-solid fa-bolt"></i> Vite</span>
+                        <span class="eco-pill magnetic"><i class="fa-solid fa-paper-plane"></i> Postman</span>
+                        <span class="eco-pill magnetic"><i class="fa-solid fa-cloud"></i> Vercel</span>
+                        <span class="eco-pill magnetic"><i class="fa-brands fa-chrome"></i> Chrome DevTools</span>
+                        <span class="eco-pill magnetic"><i class="fa-brands fa-figma"></i> Figma</span>
+                        <span class="eco-pill magnetic"><i class="fa-solid fa-network-wired"></i> REST APIs</span>
+                        <span class="eco-pill magnetic"><i class="fa-solid fa-terminal"></i> Terminal / Bash</span>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= UPGRADED TERMINAL NOTE ================= -->
+
                 <div class="skills-note glass-card reveal">
 
-                    <i class="fa-solid fa-terminal"></i>
+                    <div class="skills-note-top">
+                        <div class="terminal-traffic-lights">
+                            <span class="traffic-dot red"></span>
+                            <span class="traffic-dot yellow"></span>
+                            <span class="traffic-dot green"></span>
+                        </div>
+                        <span class="terminal-tab-title">bash — vikas@dev:~/skills</span>
+                    </div>
 
-                    <p>
-                        Currently learning and improving my skills through
-                        hands-on projects and continuous practice.
-                    </p>
-
-                    <span class="note-cursor">_</span>
+                    <div class="skills-note-body">
+                        <i class="fa-solid fa-terminal"></i>
+                        <p>
+                            <span class="term-prompt">vikas@portfolio:~$</span> <span class="term-cmd">cat current-focus.json</span> &rarr; <span class="term-val">"Building scalable full-stack web applications, RESTful services & modern AI interfaces."</span>
+                        </p>
+                        <span class="note-cursor">_</span>
+                    </div>
 
                 </div>
 
@@ -1441,7 +1763,7 @@
                     </a>
 
                     <p>
-                        Web developer focused on building clean,
+                        Full Stack Developer focused on building clean,
                         responsive, and user-friendly web experiences.
                     </p>
 
