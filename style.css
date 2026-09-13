@@ -2716,6 +2716,8 @@ body.cursor-hover .cursor-dot {
 
     font-size: 0.75rem;
 
+    word-break: break-word;
+
 }
 
 .contact-arrow {
