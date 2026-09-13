@@ -2957,19 +2957,46 @@ body.cursor-hover .cursor-dot {
 
 }
 
+.contact-submit:disabled {
+
+    opacity: 0.7;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+
+}
+
 .form-status {
 
-    min-height: 18px;
+    min-height: 20px;
 
     text-align: center;
 
-    color: var(--green);
+    color: var(--text-soft);
 
     font-family: var(--mono);
 
-    font-size: 0.62rem;
+    font-size: 0.75rem;
+
+    margin-top: 10px;
+
+    transition: color 0.3s ease;
 
 }
+
+.form-status.success {
+
+    color: var(--green);
+
+}
+
+.form-status.error {
+
+    color: #f87171;
+
+}
+
 
 
 /* =========================================================

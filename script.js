@@ -762,40 +762,78 @@ if (contactForm) {
 
     contactForm.addEventListener(
         "submit",
-        (event) => {
+        async (event) => {
 
             event.preventDefault();
 
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnContent = submitBtn ? submitBtn.innerHTML : null;
 
-            if (formStatus) {
-
-                formStatus.textContent =
-                    "✓ Message received successfully.";
-
+            // Loading state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
             }
 
+            if (formStatus) {
+                formStatus.className = "form-status";
+                formStatus.textContent = "Sending your message...";
+            }
 
-            contactForm.reset();
+            try {
+                const formData = new FormData(contactForm);
 
-
-            setTimeout(
-                () => {
-
-                    if (formStatus) {
-
-                        formStatus.textContent =
-                            "";
-
+                const response = await fetch(
+                    "https://formsubmit.co/ajax/vikasathya.info@gmail.com",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Accept": "application/json"
+                        },
+                        body: formData
                     }
+                );
 
-                },
-                4000
-            );
+                const data = await response.json().catch(() => ({}));
+
+                if (response.ok && (data.success === "true" || data.success === true || !data.error)) {
+                    if (formStatus) {
+                        formStatus.className = "form-status success";
+                        formStatus.textContent = "✓ Message sent successfully! I will get back to you soon.";
+                    }
+                    contactForm.reset();
+                } else {
+                    throw new Error(data.message || "Failed to send message.");
+                }
+
+            } catch (error) {
+                console.error("Contact Form Error:", error);
+                if (formStatus) {
+                    formStatus.className = "form-status error";
+                    formStatus.textContent = "✗ Failed to send message. Please try again or email directly.";
+                }
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnContent;
+                }
+
+                setTimeout(
+                    () => {
+                        if (formStatus && formStatus.classList.contains("success")) {
+                            formStatus.textContent = "";
+                            formStatus.className = "form-status";
+                        }
+                    },
+                    6000
+                );
+            }
 
         }
     );
 
 }
+
 
 
 /* =========================================================
